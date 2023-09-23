@@ -27,4 +27,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-<h1>Instalar nodemon de manera global junto con typescript ##comandos: tsc init (descomentamos outDir y agregamos dist), nodemon dist/index.js en el paquete js tsc --watch (en otra terminal)</h1>
+<h1>Instalar nodemon de manera global junto con typescript --- comandos: tsc init (descomentamos outDir y agregamos dist), nodemon dist/index.js en el paquete js tsc --watch (en otra terminal)</h1>
+
