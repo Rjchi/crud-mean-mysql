@@ -14,6 +14,6 @@ router
   .get("/api/product/:id", getProduct)
   .delete("/api/delete/:id", deleteProduct)
   .post("/api/add", addProduct)
-  .put("/api/update", updateProduct);
+  .put("/api/update/:id", updateProduct);
 
 export default router;

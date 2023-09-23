@@ -1,3 +1,4 @@
+import db from "../db/connection";
 import express from "express";
 import routeProduct from "../routes/product.routes";
 
@@ -11,10 +12,10 @@ class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT || "3001";
-
     this.listen();
     this.middlewares();
     this.routes();
+    this.dbConnect();
   }
 
   listen() {
@@ -35,6 +36,15 @@ class Server {
 
   middlewares() {
     this.app.use(express.json());
+  }
+
+  async dbConnect() {
+    try {
+      await db.authenticate();
+      console.log("base de datos conectada");
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
