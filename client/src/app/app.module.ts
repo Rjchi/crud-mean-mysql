@@ -12,6 +12,11 @@ import { AddEditProductComponent } from './components/add-edit-product/add-edit-
  * ------------------------------*/
 import { ReactiveFormsModule } from '@angular/forms';
 
+/**--------------------------------------------
+ * | Esto es para hacer las peticiones HTTP
+ * --------------------------------------------*/
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +24,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListProductsComponent,
     AddEditProductComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  /**---------------------------------------------------------
+   * | Agregamos el modulo para hacer las peticiones HTTP
+   * -------------------------------------------------------*/
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
