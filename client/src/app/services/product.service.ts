@@ -27,6 +27,10 @@ export class ProductService {
     return this.http.get<Product[]>(this.myAppUrl + this.myApiUrl);
   }
 
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(this.myAppUrl + this.myApiUrl + id);
+  }
+
   deleteProduct(id: number): Observable<void> {
     return this.http.delete<void>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
@@ -36,5 +40,9 @@ export class ProductService {
      * | Este metodo recibe otro parametro(body)
      --------------------------------------------*/
     return this.http.post<void>(this.myAppUrl + this.myApiUrl, product);
+  }
+
+  updateProduct(id: number, product: Product): Observable<void> {
+    return this.http.put<void>(this.myAppUrl + this.myApiUrl + id, product);
   }
 }
