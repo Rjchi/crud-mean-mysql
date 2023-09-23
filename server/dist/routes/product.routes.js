@@ -8,8 +8,8 @@ const product_controllers_1 = require("../controllers/product.controllers");
 const router = express_1.default.Router();
 router
     .get("/api/products", product_controllers_1.getProducts)
-    .get("/api/product/:id", product_controllers_1.getProduct)
-    .delete("/api/delete/:id", product_controllers_1.deleteProduct)
-    .post("/api/add", product_controllers_1.addProduct)
-    .put("/api/update/:id", product_controllers_1.updateProduct);
+    .get("/api/products/:id", product_controllers_1.getProduct)
+    .delete("/api/products/:id", product_controllers_1.deleteProduct)
+    .post("/api/products", product_controllers_1.addProduct)
+    .put("/api/products/:id", product_controllers_1.updateProduct);
 exports.default = router;

@@ -11,9 +11,9 @@ const router = express.Router();
 
 router
   .get("/api/products", getProducts)
-  .get("/api/product/:id", getProduct)
-  .delete("/api/delete/:id", deleteProduct)
-  .post("/api/add", addProduct)
-  .put("/api/update/:id", updateProduct);
+  .get("/api/products/:id", getProduct)
+  .delete("/api/products/:id", deleteProduct)
+  .post("/api/products", addProduct)
+  .put("/api/products/:id", updateProduct);
 
 export default router;

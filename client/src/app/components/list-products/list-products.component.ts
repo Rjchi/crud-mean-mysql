@@ -20,8 +20,17 @@ export class ListProductsComponent implements OnInit {
   }
 
   getListProducts() {
-    this._productService.getListProducts().subscribe((data) => {
+    this._productService.getListProducts().subscribe((data: Product[]) => {
       this.listProducts = data;
+    });
+  }
+
+  deleteProduct(id: number) {
+    this._productService.deleteProduct(id).subscribe(() => {
+      /**--------------------------------------
+       * | Volvemos a cargar los productos
+       * --------------------------------------*/
+      this.getListProducts();
     });
   }
 }
