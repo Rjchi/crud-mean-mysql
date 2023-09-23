@@ -1,6 +1,13 @@
+/**----------------------------------------------------------------
+ * | Con router nos podemos mover de componente (ex:useNavigate)
+ * ----------------------------------------------------------------*/
+import { Router } from '@angular/router';
+
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/interfaces/product';
+import { ProductService } from 'src/app/services/product.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -10,7 +17,12 @@ import { Product } from 'src/app/interfaces/product';
 export class AddEditProductComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private _productService: ProductService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -26,6 +38,13 @@ export class AddEditProductComponent {
       price: this.form.value.price,
       stock: this.form.value.stock,
     };
-    console.log(product)
+
+    this._productService.saveProduct(product).subscribe(() => {
+      this.toastr.success(
+        'Producto agregado exitosamente',
+        'Producto Agregado'
+      );
+      this.router.navigate([`/`]);
+    });
   }
 }

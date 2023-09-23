@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+/**-----------------------
+ * | Para las animaciones
+ -----------------------*/
+import { ToastrService } from 'ngx-toastr';
+
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -13,7 +19,10 @@ export class ListProductsComponent implements OnInit {
   /**------------------------------------------------------------
    * | Los servicios generalmente empiezan con guion_bajo ___
    * ------------------------------------------------------------*/
-  constructor(private _productService: ProductService) {}
+  constructor(
+    private _productService: ProductService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getListProducts();
@@ -31,6 +40,7 @@ export class ListProductsComponent implements OnInit {
        * | Volvemos a cargar los productos
        * --------------------------------------*/
       this.getListProducts();
+      this.toastr.warning('Producto eliminado con exito', 'Producto Eliminado');
     });
   }
 }
