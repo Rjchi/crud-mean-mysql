@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-4 offset-lg-4">
+      <div class="card border-dark mb-3" style="max-width: 25rem;">
+        <div class="card-header text-center">
+          Agregar Producto:
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="addProduct()">
+            <input type="text" class="form-control" placeholder="Ingrese el nombre" name="name" formControlName="name">
+            <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">El campo nombre es <strong>Requerido</strong></span>
+            <input type="text" class="form-control mt-2" placeholder="Ingrese la descripción" name="description" formControlName="description">
+            <span *ngIf="form.get('description')?.hasError('required') && form.get('description')?.touched">El campo descripcion es <strong>Requerido</strong></span>
+            <input type="number" class="form-control mt-2" placeholder="Ingrese el precio" name="price" formControlName="price">
+            <span *ngIf="form.get('price')?.hasError('required') && form.get('price')?.touched">El campo precio es <strong>Requerido</strong></span>
+            <input type="number" class="form-control mt-2" placeholder="Ingrese el stock" name="stock" formControlName="stock">
+            <span *ngIf="form.get('stock')?.hasError('required') && form.get('stock')?.touched">El campo stock es <strong>Requerido</strong></span>
+            <div class="row mt-2 text-center">
+              <div class="col-lg-6">
+                <button type="submit" class="btn btn-outline-primary" [disabled]="form.invalid">Aceptar</button>
+              </div>
+              <div class="col-lg-6">
+                <button type="button" routerLink="/" class="btn btn-outline-success">Volver</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
