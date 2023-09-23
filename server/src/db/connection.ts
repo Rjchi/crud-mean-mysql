@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize("pruebas", "root", "", {
+const db = new Sequelize("pruebas", "root", "", {
   host: "localhost",
   dialect: "mysql",
   /**----------------------------------------------
@@ -9,4 +9,4 @@ const sequelize = new Sequelize("pruebas", "root", "", {
   // logging: false,
 });
 
-export default sequelize;
+export default db;

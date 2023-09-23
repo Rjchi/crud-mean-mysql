@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
-const sequelize = new sequelize_1.Sequelize("pruebas", "root", "", {
+const db = new sequelize_1.Sequelize("pruebas", "root", "", {
     host: "localhost",
     dialect: "mysql",
     /**----------------------------------------------
@@ -9,4 +9,4 @@ const sequelize = new sequelize_1.Sequelize("pruebas", "root", "", {
      * ----------------------------------------------*/
     // logging: false,
 });
-exports.default = sequelize;
+exports.default = db;
